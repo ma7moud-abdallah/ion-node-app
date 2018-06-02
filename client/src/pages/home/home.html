@@ -1,0 +1,62 @@
+<ion-header   class='header'>
+  <ion-navbar padding >
+    <ion-row>
+      <ion-col col-2>
+        <button ion-button icon-only menuToggle  float-left  clear >
+            <ion-icon name="menu"></ion-icon>
+          </button>
+      </ion-col>
+      <ion-col col-8>
+        <ion-title text-center>Accounts</ion-title>
+      </ion-col>
+      <ion-col col-2>
+          <button ion-button float-right light  icon-only clear>
+              <ion-icon  name="time"></ion-icon>
+          </button>
+      </ion-col>
+  </ion-row>
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item no-lines *ngIf="products">
+    <p float-left>{{lower}}-{{upper}} of {{products.totalCount}}</p>
+    <small float-right *ngIf="page < products.pages" (click) ="next()">next page</small>
+    <small float-right *ngIf="page > 1" (click)="prev()">previos page</small>
+  </ion-item>
+  <div class="aaa" *ngIf="filteredproducts" >
+    <ion-item  class="wrape"   *ngFor="let product of filteredproducts"  (click)="productDetails(product)">
+      <ion-row>
+        <ion-col col-2 >
+          <ion-item class="checks" style="border-right:2px solid #e2e2e2" no-lines>
+            <ion-checkbox color="primary" ngModel name="aaaa" [(ngModel)]="product.selected" #f="ngModel" (click)="checked(f,product)"></ion-checkbox>
+          </ion-item>
+        </ion-col>
+        <ion-col col-10 style="padding:0 10px">
+          <h1>{{product.number}}</h1>
+          <p float-left>Total Services: <strong>{{product.services}}</strong>  </p>
+          <p float-right>Total Bills:  <strong>{{product.bill  | currency:'SR '}}</strong> </p>
+      
+        </ion-col>
+      </ion-row>
+
+    </ion-item>
+   
+  </div>
+
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+      <ion-item>
+        <button *ngIf="totalBill > 0" ion-button (click)="deselectAll()" clear>deselect all</button>
+        <button *ngIf="totalBill <= 0.00" ion-button (click)="selectAll()" clear>select all</button>
+        <div class="item-note" item-end>
+          TOTAL: {{totalBill  | currency:'SR '}} 
+        </div>
+      </ion-item>
+    <button ion-button full style="background-color:#db3f7c; color:#ffff" [disabled]="totalBill <= 0.00 ">PAY</button>
+  </ion-toolbar >
+      
+</ion-footer>

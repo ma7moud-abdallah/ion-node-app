@@ -1,0 +1,82 @@
+page-home {
+    ion-navbar ion-row {
+        padding: 0;
+        & ion-col {
+            padding: 0;
+            margin: 0;
+            [icon-only] ion-icon{
+                padding: 0 1px 10px 0;
+                color: #fff
+            }
+
+            
+
+            .bar-button-menutoggle-md ion-icon{
+                font-size: 1.4em;
+                color:#fff;
+                margin: 3px 0
+            }
+                 
+       }
+
+    }
+    ion-content{
+        .searchbar-md .searchbar-input{
+            border-radius:5px;
+            height: 30px; 
+        }
+
+        .searchbar-md .searchbar-search-icon{
+            top:6px
+        }
+        .wrape , .checks{
+            padding: 3px 1px 
+        }
+        
+        .checks{
+            text-align: center;
+            padding-left: 4px
+        }
+        .checkbox-md .checkbox-icon{
+            border-color: #dd3f7e;
+            width:20px;
+            height: 20px;
+            left:2%
+        }
+
+        .checkbox-md-primary .checkbox-checked{
+            background: #dd3f7e
+        }
+
+    }
+
+
+    ion-footer{
+        .toolbar-md{
+            padding: 0;
+        }
+        .toolbar-md  .button-md {
+            margin:0;
+        }
+        .toolbar-md .button-inner{
+            color:#fff
+        }
+        .toolbar-md ion-item{
+            background: #f2f2f2;
+        }
+        .toolbar-md ion-item .button-inner{
+            color: #db3f7c
+        }
+       
+        .toolbar-md ion-item .item-note{
+            color: #5e5c5c
+         }
+       
+       
+    }
+        
+       
+    //db3f7c disabeled , footer f2f2f2 ,footer total 5e5c5c, pro prduct bill 787878,product number 333333,price 070707, search d3d3d3   
+
+
+}
